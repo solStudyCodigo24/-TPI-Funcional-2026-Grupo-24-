@@ -1,14 +1,37 @@
-TPI-Funcional-2026-Grupo-24
-El repositorio corresponde a un trabajo Integrador de la catedra Paradigmas y Lenguajes de programacion. El proyecto desarolla un Sistema de Semaforos inteligentes aplicando los principios del paradigma funcional en Common Lips comparando con otro lenguaje funcional asignado, Elixir. En resume el trabajo se divide en cuatro fases:
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ddc0b049-104c-45f8-8419-d471f8241fc2" />
 
-1. Implementación en Lisp: desarrollo de la resolucion del problema.
-2. Integración de librerías externas segun nuestra eleccion: puede ser local-time o cl-json.
-3. Estudio Comparativo: Reimplementación de funciones propias de la primera fase en otro lenguaje funcional (Elixir) y análizar teóricamente  sus diferencias sintácticas, semánticas y de aplicación industrial.
-4.  Análisis del codigo : Reflexion en formato video y presencial de como resolvimos el problema, dificultades y nuevos conocimiento .
-   <img width="380" height="475" alt="ChatGPT Image 28 may 2026, 22_40" src="https://github.com/user-attachments/assets/95ec1c34-e587-408d-a7de-5ea70e83d7ab" />
-      
+# 🚦 TPI-Funcional-2026-Grupo-24
 
-     
-      
+<table>
+<tr>
+<td width="65%" valign="top">
 
+El repositorio corresponde a un Trabajo Práctico Integrador de la cátedra **Paradigmas y Lenguajes de Programación**.
 
+El proyecto desarrolla un **Sistema de Semáforos Inteligentes**, aplicando los principios del paradigma funcional en **Common Lisp** y realizando una comparación con otro lenguaje funcional asignado: **Elixir**.
+
+## Estructura del trabajo
+
+El proyecto se divide en cuatro fases principales:
+
+1. **Implementación en Lisp**
+   Desarrollo de la resolución completa del problema utilizando Common Lisp.
+
+2. **Integración de librerías externas**
+   Incorporación de librerías seleccionadas por el grupo, como `local-time` o `cl-json`.
+
+3. **Estudio comparativo**
+   Reimplementación de funciones desarrolladas en Lisp utilizando **Elixir**, acompañada de un análisis teórico sobre diferencias sintácticas, semánticas y aplicaciones industriales.
+
+4. **Análisis del código**
+   Reflexión y exposición en formato presencial y audiovisual sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.
+
+</td>
+
+<td width="35%" align="center">
+
+<img src="https://github.com/user-attachments/assets/0ebfc58c-d50a-4109-8859-2f0d9163e8fa" width="320"/>
+
+</td>
+</tr>
+</table>
