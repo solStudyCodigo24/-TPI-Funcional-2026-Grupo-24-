@@ -27,6 +27,43 @@ El proyecto se divide en cuatro fases principales:
    Reflexión y exposición en formato presencial y audiovisual sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.
 
 </td>
+# TPI Funcional 2026 - Grupo 24
+
+## Estructura del Repositorio
+
+```text
+TPI-Funcional-2026-Grupo24/
+
+├── main
+│   ├── README.md
+│   ├── instalar sbcl.txt
+│   └── lisp/
+│       ├── Cómo usar la función auditoria.txt
+│       ├── config.local-time
+│       └── instalar sbcl.txt
+
+├── LIPS
+│   ├── core.lisp
+│   ├── Requerimiento 7 e Ingreso por Operador.lips
+│   └── lisp/
+
+├── Comparativa
+│   └── solucion.erl
+
+└── Docs
+    ├── INFORME TPIntegrador-PyLdP GRUPO24.docx
+    └── HONOR.md
+```
+
+## Descripción
+
+ **LIPS:** Estan los archivos de la fase 1 la fase 2, tamb. tiene unos readme
+ **Comparativa:** Resolvemos y comparamos ambos codigos.
+**Docs:** Informe del trabajo práctico y declaración de código de honor.
+**Main:** Rama principal del repositorio con la documentación general.
+**Importante** : La vitacora de depuracion se ve a lo largo de los commit pero estan especificadas en el informe.
+```
+```
 
 <td width="35%" align="center">
 
