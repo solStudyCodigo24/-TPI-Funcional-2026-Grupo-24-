@@ -2,10 +2,10 @@
 
 # 🚦 TPI-Funcional-2026-Grupo-24
 *Integrantes* 
-**Tobias Balenzuela**
-**Ariel Gomez**
-**De Weert Lautaro** 
-**Miño Maria Sol**
+**Tobias Balenzuela** ,
+**Ariel Gomez**,
+**De Weert Lautaro** ,
+**Miño Maria Sol**,
 
 <table>
 <tr>
@@ -62,10 +62,10 @@ TPI-Funcional-2026-Grupo24/
 
 ## Descripción
 
- **LIPS:** Estan los archivos de la fase 1 la fase 2, tamb. tiene unos readme
- **Comparativa:** Resolvemos y comparamos ambos codigos.
-**Docs:** Informe del trabajo práctico y declaración de código de honor.
-**Main:** Rama principal del repositorio con la documentación general.
+ **LIPS:** Estan los archivos de la fase 1 la fase 2, tamb. tiene unos readme ,
+ **Comparativa:** Resolvemos y comparamos ambos codigos. ,
+**Docs:** Informe del trabajo práctico y declaración de código de honor. ,
+**Main:** Rama principal del repositorio con la documentación general. ,
 **Importante** : La vitacora de depuracion se ve a lo largo de los commit pero estan especificadas en el informe.
 ```
 ```
