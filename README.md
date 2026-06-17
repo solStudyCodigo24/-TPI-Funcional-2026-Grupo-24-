@@ -1,6 +1,11 @@
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ddc0b049-104c-45f8-8419-d471f8241fc2" />
 
 # 🚦 TPI-Funcional-2026-Grupo-24
+*Integrantes* 
+**Tobias Balenzuela**
+**Ariel Gomez**
+**De Weert Lautaro** 
+**Miño Maria Sol**
 
 <table>
 <tr>
