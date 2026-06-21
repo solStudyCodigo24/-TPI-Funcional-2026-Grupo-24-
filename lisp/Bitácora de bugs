@@ -1,1 +1,211 @@
+Bitácora de bugs
+ERRORES FASE 1
+(defun transicion (color-actual cambiar-a)
+  (cond 
+    ((and (eq color-actual en-rojo)(eq cambiar-a verde)) 
+     (list color-actual cambiar-a-verde))
+    ((and (eq color-actual en-verde)(eq cambiar-a amarillo)) 
+     (list color-actual cambiar-a-amarillo))
+    ((and (eq color-actual en-amarillo)(eq cambiar-a rojo)) 
+     (list color-actual cambiar-a-rojo))
+    (t (list color-actual 'accion-por-defecto))))
 
+TRANSICION
+[2]> (transicion 'en-rojo 'cambiar-a-verde)
+
+*** - AND: variable EN-ROJO has no value
+Es posible continuar en los siguientes puntos:
+USE-VALUE      :R1      Input a value to be used instead of EN-ROJO.
+STORE-VALUE    :R2      Input a new value for EN-ROJO.
+ABORT          :R3      Abort main loop
+Break 1 [3]> 
+"Error de logica"
+
+(defun transicion (color-actual cambiar-a)
+  (cond 
+    ((and (eq color-actual en-rojo)(eq cambiar-a verde)) 
+             (list color-actual cambiar-a-verde))
+    ((and (eq color-actual en-verde)(eq cambiar-a amarillo)) 
+     (list color-actual cambiar-a-amarillo))
+    ((and (eq color-actual en-amarillo)(eq cambiar-a rojo)) 
+     (list color-actual cambiar-a-rojo))
+    (t (list color-actual 'accion-por-defecto))))
+       
+(defun transicion (color-actual cambiar-a)
+	(cond 
+		((and (eq color-actual 'en-verde)(eq cambiar-a 'amarillo)) 
+							    (list color-actual 'cambiar-a-amarillo))
+	    ((and (eq color-actual 'en-amarillo)(eq cambiar-a 'rojo)) 
+							    (list color-actual 'cambiar-a-rojo))
+		((and (eq color-actual 'en-rojo)(eq cambiar-a 'verde)) 
+							    (list color-actual 'cambiar-a-verde))
+	    (t (list color-actual 'accion-por-defecto))
+
+(defun timer (tiempo-unix)
+   (let ((segundo (rem tiempo-unix 216)))
+      (cond
+         ((and (>= segundo 0) (<= segundo 89)) 'en-rojo)
+         ((and (>= segundo 90) (<= segundo 95)) 'en-amarillo)
+         ((and (>= segundo 96) (<= segundo 215)) 'en-verde))))
+
+
+(defun Evaluar-ciclo-error (nro-segundos)
+  (cond
+    ((<= nro-segundos 35) ;; 
+     "Ciclo por debajo del mínimo recomendado
+      por Ingenieros Civiles. Existe riesgo de colision.")
+    ((<= nro-segundos 150)
+     "Ciclo dentro de los parametros recomendados 
+      en por la Ingenieros Civiles ")
+    (t
+     "Ciclo por encima del máximo
+      recomendado por Ingenieros Civiles.")))
+
+(defun recomendacion-ciclo (semf-R semf-A semf-V)
+(Evaluar-ciclo (calcular-duracion-total)))
+
+(defun calculaPorcentajesHora (rojo amarillo verde)
+  (let ((totalSegundos (+ rojo amarillo verde)))
+   (list
+       'ROJO (float(* (/ rojo totalSegundos) 100))
+       'AMARILLO (float (* (/ amarillo totalSegundos) 100))
+       'VERDE (float(* (/ verde totalSegundos) 100)))))
+
+(defun informe-error-stream (datos)
+  (with-open-file (stream "informe-ejecucion-semaforo.txt" :direction :output :if-exists :supersede)
+    (dolist (registro datos)
+      (print (car registro)))))
+
+
+ERRORES FASE 2 
+
+ (ql:quickload "local-time")
+
+(defun auditoria (tiempo-unix color-anterior color-nuevo)
+  (format t "Tiempo [~A]: la luz ha cambiado de ~A a ~A~%"
+          (local-time:format-timestring
+              nil
+              (local-time:unix-to-timestamp tiempo-unix)
+              :format '((:year 4) #\- (:month 2) #\- (:day 2)
+                        #\space (:hour 2) #\: (:min 2) #\: (:sec 2)))
+          color-anterior
+          color-nuevo))
+
+(auditoria (get-universal-time) "rojo" "verde")
+
+*** - READ en #<INPUT CONCATENATED-STREAM #<INPUT STRING-INPUT-STREAM> #<INPUT UNBUFFERED FILE-STREAM CHARACTER @2>>: no
+      existe ning■n paquete con el nombre "QL"
+Es posible continuar en los siguientes puntos:
+ABORT          :R1      Abort main loop
+Break 1 [2]> ;;; Cargar Quicklisp si no está disponible
+(let ((quicklisp-init (probe-file "C:/Users/MARIAS~1/quicklisp/setup.lisp")))
+  (when quicklisp-init
+    (load quicklisp-init)))
+;;; Asegurar que local-time esté disponible
+(ql:quickload "local-time")
+
+(defun auditoria (tiempo-unix color-anterior color-nuevo)
+  (format t "Tiempo [~A]: la luz ha cambiado de ~A a ~A~%"
+          (local-time:format-timestring
+              nil
+              (local-time:unix-to-timestamp tiempo-unix)
+              :format '((:year 4) #\- (:month 2) #\- (:day 2)
+                        #\space (:hour 2) #\: (:min 2) #\: (:sec 2)))
+          color-anterior
+          color-nuevo))
+
+(auditoria (get-universal-time) "rojo" "verde")
+
+NIL
+Break 1 [2]> 
+*** - READ en
+       #<INPUT CONCATENATED-STREAM
+         #<IO TWO-WAY-STREAM #<INPUT UNBUFFERED FILE-STREAM CHARACTER @7> #<OUTPUT UNBUFFERED FILE-STREAM CHARACTER>>>
+      : no existe ning■n paquete con el nombre "QL"
+Es posible continuar en los siguientes puntos:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort main loop
+Break 2 [3]> (load "C:\\Users\\MARIAS~1\\quicklisp\\setup.lisp")
+
+*** - TRUENAME: Directory #P"C:\\Users\\MARIAS~1\\quicklisp\\" does not exist
+Es posible continuar en los siguientes puntos:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort main loop
+Break 3 [4]> (load "C:/Users/MARIAS~1/quicklisp/setup.lisp")
+
+*** - TRUENAME: Directory #P"C:\\Users\\MARIAS~1\\quicklisp\\" does not exist
+Es posible continuar en los siguientes puntos:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort main loop
+Break 4 [5]> (ql:quickload "local-time")
+
+*** - READ en
+       #<INPUT CONCATENATED-STREAM #<INPUT STRING-INPUT-STREAM>
+         #<IO TWO-WAY-STREAM #<INPUT UNBUFFERED FILE-STREAM CHARACTER @10> #<OUTPUT UNBUFFERED FILE-STREAM CHARACTER>>>
+      : no existe ning■n paquete con el nombre "QL"
+Es posible continuar en los siguientes puntos:
+ABORT          :R1      Abort debug loop
+ABORT          :R2      Abort debug loop
+ABORT          :R3      Abort debug loop
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 5 [6]> `(load "C:/Users/MARIAS~1/quicklisp/setup.lisp")`
+
+(LOAD "C:/Users/MARIAS~1/quicklisp/setup.lisp")
+Break 5 [6]> (load "C:/Users/MARIAS~1/quicklisp/setup.lisp")
+
+(LOAD "C:/Users/MARIAS~1/quicklisp/setup.lisp")
+Break 5 [6]> (ql:quickload "local-time")
+
+ERRORES FASE 3
+15> sumarCiclos()-> 90 + 6 + 120. 
+ok 
+16> timer (TiempoUnix) when TiempoUnix rem sumarCiclos < 90 -> "EN ROJO"; 
+    timer(TiempoUnix) when TiempoUnix rem sumarCiclos < 96 -> "EN AMARILLO"; 
+    timer(TiempoUnix)-> "EN VERDE". 
+ok 
+17> timer(300). 
+"EN VERDE" 
+18> timer(87). 
+"EN VERDE" 
+19> timer(2). 
+"EN VERDE" 
+20> timer (TiempoUnix) when TiempoUnix rem sumarCiclos() < 90 -> "EN ROJO"; 
+        timer(TiempoUnix) when TiempoUnix rem sumarCiclos() < 96 -> "EN AMARILLO"; 
+        timer(TiempoUnix)-> "EN VERDE". 
+* 3:44: illegal guard expression 
+21>  timer (TiempoUnix) when TiempoUnix rem sumarCiclos() < 90 -> "EN ROJO"; 
+            timer(TiempoUnix) when TiempoUnix rem sumarCiclos() < 96 -> "EN AMARILLO"; 
+            timer(TiempoUnix)-> "EN VERDE". 
+* 3:44: illegal guard expression 
+22> timer1 (TiempoUnix) when TiempoUnix rem sumarCiclos() < 90 -> "EN ROJO"; 
+                timer1(TiempoUnix) when TiempoUnix rem sumarCiclos() < 96 -> "EN AMARILLO"; 
+                timer1(TiempoUnix)-> "EN VERDE". 
+* 3:44: illegal guard expression 
+23> Timer2 (tiempoUnix) when TiempoUnix rem 216 < 90 -> "EN ROJO"; 
+    timer3(tiempoUnix) when TiempoUnix rem 216 < 96 -> "EN AMARILLO"; 
+    tiemer3 (tiempoUnix)-> "EN VERDE". 
+* 1:21: syntax error before: 'when' 
+23>  timer4 (TiempoUnix) when TiempoUnix rem 216 < 90 -> "EN ROJO"; 
+        timer4(TiempoUnix) when TiempoUnix rem 216 < 96 -> "EN AMARILLO"; 
+        timer4 (TiempoUnix)-> "EN VERDE". 
+ok 
+24> timer4(300). 
+"EN ROJO" 
+25> timer4(6723). 
+"EN ROJO" 
+26> Semaforo(87). 
+* 1:1: variable 'Semaforo' is unbound 
+27> timer(87). 
+"EN VERDE" 
+28> timer(93). 
+"EN VERDE" 
+29> timer4(2). 
+"EN ROJO" 
+30> timer4(93). 
+"EN AMARILLO" 
+31>
+;; La explicacion de la Bitácora de bugs encuentran en el informe 
