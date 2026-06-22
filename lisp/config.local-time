@@ -59,3 +59,66 @@
 )
 ;;probar con
 ;;(auditoria 1700000000 'rojo 'verde)  
+
+;REQUERIMIENTO 4: Funciones de Duración y Evaluación del Ciclo
+;;====================================================================
+;; FUNCIÓN: calcular-duracion-total 
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: Devuelve la suma de la cant. de segundos que tarda el semaforo en rojo, 
+;; el semáforo en amarillo y el semáforo en verde.
+;; IMPACTO: No destructiva. Función auxiliar para la función recomendación-ciclo-Ing. y calcular porcentaje hora.
+;;====================================================================
+(defun calcular-duracion-total (semf-R semf-A semf-V)
+  (+ semf-R semf-A semf-V))
+
+;;====================================================================
+;; FUNCIÓN: Evaluar-Ciclo (Req. 4.b)
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: Ingresa como parámetro la cantidad de seg que dura la suma de un ciclo.
+;; Devuelve un mensaje correspondiente a las distintas opciones recomendadas por ingenieros civiles.
+;; IMPACTO: No destructiva
+;;====================================================================
+(defun Evaluar-ciclo (nro-segundos)
+  (cond
+    ((< nro-segundos 35)
+     "Ciclo por debajo del mínimo recomendado por Ingenieros Civiles.Existe riesgo de colision.")
+    ((<= nro-segundos 150)
+     "Ciclo dentro de los parametros recomendados en por la Ingenieros Civiles ")
+    (t
+     "Ciclo por encima del máximo recomendado por Ingenieros Civiles.Existe riesgo de incrementar incumplimiento en las normas de transito")))
+
+;;====================================================================
+;; FUNCIÓN: Recomendacion-ciclo-ing
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: Devuelve el mensaje segun la suma de calcular los ciclos, por lo tanto, 
+;; es una composición de la función Evaluar-ciclo y calcular-duracion-total.
+;; IMPACTO: No destructiva.
+;;====================================================================
+(defun recomendacion-ciclo-ing (semf-R semf-A semf-V)
+  (Evaluar-ciclo (calcular-duracion-total semf-R semf-A semf-V)))
+
+; REQUERIMIENTO 5: Planificación Temporal
+;;====================================================================
+;; FUNCIÓN: Ciclos-por-tiempo
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: Calcula la cant. de ciclos completados: pasa los minutos a segundos, 
+;; luego divide con sumar-ciclos. Utiliza float para los decimales y truncate para obtener el entero.
+;; IMPACTO: No destructiva
+;; ====================================================================
+(defun ciclos-por-tiempo (cant-min)
+  (truncate (float (/ (* cant-min 60) (sumar-ciclos)))))
+
+;REQUERIMIENTO 6
+;;====================================================================
+;; FUNCIÓN: calcularPorcentajesHora
+;; NATURALEZA: Pura
+;; ESTRATEGIA: Retorna una lista con el color del semaforo correspondiente y el cálculo de su porcentaje.
+;; Realiza una composición funcional reutilizando calcular-ciclos para un código limpio.
+;; IMPACTO: No destructiva
+;; ====================================================================
+(defun calculaPorcentajesHora (semf-R semf-A semf-V)
+  (list
+    'ROJO     (float (* (/ (* semf-R (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))
+    'AMARILLO (float (* (/ (* semf-A (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))
+    'VERDE    (float (* (/ (* semf-V (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100)))
+)
