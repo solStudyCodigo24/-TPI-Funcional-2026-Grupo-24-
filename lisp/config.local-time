@@ -27,7 +27,7 @@
 ;; IMPACTO: No destructiva (Auxiliar para funcion timer y recomendacion-ciclo-ing)
 ;;====================================================================
 (defun sumar-ciclos ()
-  (+ 90 6 120))
+  (+ 90 3  120 3 6))
 
 ;;====================================================================
 ;; FUNCIÓN: timer
