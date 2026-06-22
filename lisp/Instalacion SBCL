@@ -1,0 +1,29 @@
+Este documento explica cómo instalar y ejecutar el programa desde una computadora limpia con Windows.
+
+Instalar SBCL (Steel Bank Common Lisp)
+
+1. Descargar el instalador desde:  
+   [https://www.sbcl.org/platform-table.html](https://www.sbcl.org/platform-table.html)  
+   Elegir la version para Windows (archivo `.msi`, por ejemplo `sbcl-2.6.5-x86-64-windows-binary.msi`).
+
+2. Ejecutar el instalador y seguir los pasos.  
+   Marcar la opción **"Add SBCL to the system PATH"** si aparece.
+
+3. Verificar la instalación:  
+   - Abrir Símbolo del sistema (Win + R, escribir cmd y Enter).  
+   - Escribir `sbcl --version`. Debe mostrar algo como SBCL 2.6.5.
+
+
+Instalar Quicklisp (gestor de bibliotecas)
+
+1. Descargar el instalador de Quicklisp desde:  
+   [https://beta.quicklisp.org/quicklisp.lisp](https://beta.quicklisp.org/quicklisp.lisp)
+
+2. Guardar el archivo en la raíz del disco C, en lo posible en una carpeta lisp
+  `C:\quicklisp.lisp
+
+3. Abrir **Símbolo del sistema** y escribir sbcl para entrar al intérprete.
+
+4. Dentro de SBCL (prompt `*`), cargar el instalador:
+   ```lisp
+   (load "C:/quicklisp.lisp")
