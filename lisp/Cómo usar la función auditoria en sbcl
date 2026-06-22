@@ -1,0 +1,16 @@
+Cómo usar la función auditoria
+
+1. Abrir la terminal de SBCL.
+2. Cargar Quicklisp: `(load "C:/Users/MARIAS~1/quicklisp/setup.lisp")--> tiene que estar el nombre del usuario.
+
+3. Cargar local-time: `(ql:quickload "local-time")`
+4. Definir la función (pegar el código).
+5.(defun auditoria (tiempo-unix color-anterior color-nuevo) 
+
+  (format t "Tiempo ~a: la luz ha cambiado de ~a a ~a~%" 
+      	(local-time:format-timestring nil 
+        	 (local-time:unix-to-timestamp tiempo-unix)) 
+      	color-anterior 
+      	color-nuevo) 
+)
+6. Ejecutar: `(auditoria (local-time:timestamp-to-unix (local-time:now)) "rojo" "verde")`
