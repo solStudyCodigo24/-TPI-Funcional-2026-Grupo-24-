@@ -76,6 +76,9 @@
     ((< tiempo-unix 0) "El tiempo Unix no puede ser negativo")
     (t (evaluar-tiempo-en-ciclo (rem tiempo-unix (sumar-ciclos)) 'rojo))))
 
+
+(ql:quickload "local-time")`
+
 ;REQUERIMIENTO 3: Función de Auditoría
 ;; ====================================================================
 ;; FUNCION: auditoria
