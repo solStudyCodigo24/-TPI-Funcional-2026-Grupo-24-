@@ -2,65 +2,70 @@
 ;;================================================================
 ;;REQUERIMIENTO 7 : PRUEBA
 ;;===============================================================
- ;; (transicion-semf 'en-rojo 'verde)
+(transicion-semf 'en-rojo 'verde)
 ;; ;; (EN-ROJO CAMBIAR-A-VERDE)
-;; (transicion-semf 'en-verde 'amarillo)
+(transicion-semf 'en-verde 'amarillo)
 ;; ;; (EN-VERDE CAMBIAR-A-AMARILLO)
-;; (transicion-semf 'en-amarillo 'rojo)
+(transicion-semf 'en-amarillo 'rojo)
 ;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
-;; (transicion-semf 'en-amarillo 'rojo)
+(transicion-semf 'en-amarillo 'rojo)
 ;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
-;; (transicion-semf 'en-amarillo 'cambiar-a-rojo)
+(transicion-semf 'en-amarillo 'cambiar-a-rojo)
 ;; ;; (EN-AMARILLO ACCION-POR-DEFECTO)
-;; (transicion-semf 'en-amari 'cambiar-a-rojo)
+(transicion-semf 'en-amari 'cambiar-a-rojo)
 ;; ;; (EN-AMARI ACCION-POR-DEFECTO)
-;; (transicion-semf 1 'cambiar-a-rojo)
+(transicion-semf 1 'cambiar-a-rojo)
 ;; ;; (1 ACCION-POR-DEFECTO)
-;; (sumar-ciclos)
-;; ;; 216
-;; (timer -2)
+(sumar-ciclos)
+;; ;; 225
+(timer -2)
 ;; ;; "El tiempo Unix no puede ser negativo"
-;; (timer 23)
-;; ;; EN-ROJO
-;; (timer 93)
-;; ;; EN-AMARILLO
-;; (timer 120)
+(timer 23)
+;; ;; ROJO
+(timer 222)
+;; ;; EN-AMARILLO-INTERMITENTE
+(timer 124)
 ;; ;; EN-VERDE
-;; (timer 12046337647464)
+(timer 12046337647464)
 ;; ;; EN-ROJO
-;; (timer 120463376474649898)
-;; (auditoria 3334 'en-verde 'amarrillo)
+(timer 120463376474649898)
+(auditoria 3334 'en-verde 'amarrillo)
 ;; ;; Tiempo 3334: la luz ha cambiado de EN-VERDE a AMARRILLO
 ;; ;; NIL
-;; (auditoria -3334 'en-verde 'amarrillo)
+(auditoria -3334 'en-verde 'amarrillo)
 ;; ;; NIL
-;; (calcular-duracion-total 90 6 124)
+(calcular-duracion-total 90 6 124)
 ;; ;; 220
-;; (recomendacion-ciclo-ing 90 6 120)
+(recomendacion-ciclo-ing 90 6 120)
 ;; ;; "Ciclo por encima del máximo recomendado por Ingenieros Civiles.Existe riesgo de incrementar incumplimiento en las normas de transito"
-;; (recomendacion-ciclo-ing 40 6 90)
+(recomendacion-ciclo-ing 40 6 90)
 ;; ;; "Ciclo dentro de los parametros recomendados en por la Ingenieros Civiles "
-;; (recomendacion-ciclo-ing 15 3 15)
+(recomendacion-ciclo-ing 15 3 15)
 ;; ;; "Ciclo por debajo del mínimo recomendado por Ingenieros Civiles.Existe riesgo de colision."
-;; (ciclos-por-tiempo 23)
-;; ;; 6
-;; ;; 0.38888884
-;; (ciclos-por-tiempo 1)
-;; ;; 0
-;; ;; 0.2777778
-;; (ciclos-por-tiempo 4)
+(ciclos-por-tiempo 23)
+;;6 ;
+;;0.1333332
+(ciclos-por-tiempo 1)
+;;0 ;
+;;0.26666668
+(ciclos-por-tiempo 4)
 ;; ;; 1
-;; ;; 0.111111164
-;; (ciclos-por-tiempo 3)
+;; ;; 0.06666672
+(ciclos-por-tiempo 3)
 ;; ;; 0
-;; ;; 0.8333333
-;; (ciclos-por-tiempo 50)
+;; ;; 0.8
+(ciclos-por-tiempo 50)
 ;; ;; 13
-;; ;; 0.8888893
-;; (calculaPorcentajesHora 90 6 216)
-;; ;; (ROJO 28.846153 AMARILLO 1.9230769 VERDE 69.23077)
-;; (calculaPorcentajesHora 120 23 90)
-;; ;; (ROJO 51.502148 AMARILLO 9.871244 VERDE 38.62661)
+;; ;; 0.33333302
+(calculaPorcentajesHora 90 6 216)
+;; ;; (ROJO 27.5 AMARILLO 1.8333334 VERDE 66.0)
+(calculaPorcentajesHora 120 23 90)
+;;(ROJO 50.0 AMARILLO 9.583333 VERDE 37.5)
+
+;;==============================================================================
+;;INGRESO POR OPERADOR
+;;==============================================================================
+
 (defun ingresar-Datos-Semaforo ()
                 (let (color-act cambiar-color tiempo-Unix semf-r semf-a semf-v cant-min estado)
                  (princ "Ingrese el color actual del semaforo (En este formato en-verde o en-rojo o en-amarrillo) : ")
@@ -91,15 +96,15 @@
                                 "El tiempo del estado es" (tiempo-estado estado))))
                                 "ERROR ALGUNO DE LOS DATOS QUE INGRESO ES ERRONEO")))
 
-(ingresar-Datos-Semaforo)
-Ingrese el color actual del semaforo (En este formato en-verde o en-rojo o en-amarrillo) : EN-VERDE
-Ingrese el color a cual va a cambiar el semaforo ‘verde ‘rojo ‘amarrillo : amarillo
-Ingrese la cant de segundos para evaluar donde se encuentra el ciclo : 3447847844
-Ingrese la cant de segundos del semaforo en rojo  : 67
-Ingrese la cant de segundos del semaforo en Amarillo  : 6
-Ingrese la cant de segundos del semaforo en verde : 89
-Ingrese la cant de minutos para calcular la cantidad de ciclos que entran en esos min  : 15
-Ingrese el estado del semaforo para saber su sig. estado, mostrarlo y saber su tiempo : rojo
+;;(ingresar-Datos-Semaforo)
+;;Ingrese el color actual del semaforo (En este formato en-verde o en-rojo o en-amarrillo) : EN-VERDE
+;;Ingrese el color a cual va a cambiar el semaforo ‘verde ‘rojo ‘amarrillo : amarillo
+;;Ingrese la cant de segundos para evaluar donde se encuentra el ciclo : 3447847844
+;;Ingrese la cant de segundos del semaforo en rojo  : 67
+;;Ingrese la cant de segundos del semaforo en Amarillo  : 6
+;;Ingrese la cant de segundos del semaforo en verde : 89
+;;Ingrese la cant de minutos para calcular la cantidad de ciclos que entran en esos min  : 15
+;;Ingrese el estado del semaforo para saber su sig. estado, mostrarlo y saber su tiempo : rojo
 
 —-------MENSAJE ESPERADO—----------------
 Tiempo 3447847844: la luz ha cambiado de EN-VERDE a AMARILLO
