@@ -181,11 +181,11 @@
 (defun tiempo-estado (estado)
   (cond
     ((eql estado 'rojo) 90)
-    ((eql estado 'rojo-intermitente) 93)
-    ((eql estado 'verde) 213)
-    ((eql estado 'verde-intermitente) 216)
-    ((eql estado 'amarillo) 222)
-    ((eql estado 'amarillo-intermitente) 225)
+    ((eql estado 'rojo-intermitente) 3)
+    ((eql estado 'verde) 120)
+    ((eql estado 'verde-intermitente) 3)
+    ((eql estado 'amarillo) 6)
+    ((eql estado 'amarillo-intermitente) 3)
     (t 0)))
 ;; ============================================================== 
 ;; FUNCIÓN:mostrar colores 
