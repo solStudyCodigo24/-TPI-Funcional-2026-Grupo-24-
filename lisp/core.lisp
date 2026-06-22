@@ -135,6 +135,8 @@
 ;; ====================================================================
 (defun ciclos-por-tiempo (cant-min)
   (truncate (float (/ (* cant-min 60) (sumar-ciclos)))))
+
+;; REQUERIMIENTO 6: Calcular Porcentaje.
 ;;====================================================================
 ;; FUNCIÓN: calcularPorcentajesHora
 ;; NATURALEZA: Pura
