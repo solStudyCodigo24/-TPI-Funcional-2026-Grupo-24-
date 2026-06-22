@@ -17,6 +17,7 @@
 	)
 )
 
+;REQUERIMIENTO 2: Temporizador Automático
 ;;====================================================================
 ;; FUNCIÓN: Sumar-ciclos
 ;; NATURALEZA: Pura.
@@ -41,3 +42,15 @@
     ((< (rem tiempo-unix (sumar-ciclos)) 96)  'en-amarillo)
     (t  'en-verde)))
 
+;REQUERIMIENTO 3: Función de Auditoría
+;; ====================================================================
+;; FUNCION: auditoria
+;; NATURALEZA: Impura (imprime en pantalla mediante format)
+;; ESTRATEGIA: Secuencial e independiente, utiliza una condición IF (>= tiempo-Unix 0)
+;; IMPACTO: No destructiva
+;; ====================================================================
+(defun auditoria (tiempo-Unix color-anterior color-nuevo)
+  (if (>= tiempo-Unix 0)
+      (format t "Tiempo ~d: la luz ha cambiado de ~a a ~a"
+              tiempo-Unix color-anterior color-nuevo)
+      nil))
