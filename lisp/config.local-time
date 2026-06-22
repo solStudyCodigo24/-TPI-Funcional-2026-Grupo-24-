@@ -23,24 +23,58 @@
 ;; FUNCIÓN: Sumar-ciclos
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Devuelve una suma de la cant. de segundos de duración del semf. 
-;; en rojo 90 seg., amarillo 6 seg. y verde 120 seg.
+;; en rojo 90 seg., amarillo 6 seg. , verde 120 seg. , las tres veces que aparecen
+;; 3 es porque se agrega la intermitencia, del punto iterativo.
 ;; IMPACTO: No destructiva (Auxiliar para funcion timer y recomendacion-ciclo-ing)
 ;;====================================================================
 (defun sumar-ciclos ()
-  (+ 90 3  120 3 6))
+  (+ 90 3 120 3 6 3))
 
 ;;====================================================================
-;; FUNCIÓN: timer
+;; FUNCIÓN: timer sin ingresar tiempo estado 
 ;; NATURALEZA: Pura (dado un timestamp, siempre retorna el mismo color)
 ;; ESTRATEGIA: Selectiva (uso de cond y operador matemático rem para obtener el resto)
 ;; IMPACTO: No destructiva (solo calcula y devuelve resultados)
 ;;====================================================================
+;;(defun timer (tiempo-unix)
+  ;;(cond
+    ;;((< tiempo-unix 0)  "El tiempo Unix no puede ser negativo")
+    ;;((< (rem tiempo-unix (sumar-ciclos)) 90)  'en-rojo)
+    ;;((< (rem tiempo-unix (sumar-ciclos)) 210)  'en-verde)
+    ;;(t  'en-amarillo)))
+
+; ====================================================================
+; FUNCIÓN: evaluar-tiempo-en-ciclo
+; NATURALEZA: pura(recibe como parametro el resto de tiempo-unix y estado-actual)
+; ESTRATEGIA: compara el tiempo de tiempo-estado, primero con los 90 seg. despues de ello lo resta, y ese resto va 
+;comparando con el resto de las evaluaciones hasta llegar, al ciclo correcto.
+; IMPACTO: No destructiva 
+; ====================================================================
+
+(defun evaluar-tiempo-en-ciclo (resto-tiempo estado-actual)
+  (cond
+    ((< resto-tiempo (tiempo-estado estado-actual)) 
+     estado-actual)
+    (t 
+     (evaluar-tiempo-en-ciclo 
+       (- resto-tiempo (tiempo-estado estado-actual)) 
+       (siguiente-estado estado-actual)))))
+; ====================================================================
+; FUNCIÓN: timer
+; NATURALEZA: Pura. Utiliza un cond para evaluar diferentes posiciones 
+; e imprimir que color corresponde.
+; ESTRATEGIA: Si el tiempo Unix es negativo, muestra un mensaje de error. 
+; Si no , llama a la recursión pasándole como parámetro el resto  de tiempo-unix 
+;             con sumar-ciclos, y arranca siempre desde el estado 'rojo.
+; IMPACTO: No destructiva. No imprime restas intermedias; la consola 
+;          mostrará el resultado únicamente cuando la función recursiva 
+;          llegue a su caso base.
+; ====================================================================
+
 (defun timer (tiempo-unix)
   (cond
-    ((< tiempo-unix 0)  "El tiempo Unix no puede ser negativo")
-    ((< (rem tiempo-unix (sumar-ciclos)) 90)  'en-rojo)
-    ((< (rem tiempo-unix (sumar-ciclos)) 96)  'en-amarillo)
-    (t  'en-verde)))
+    ((< tiempo-unix 0) "El tiempo Unix no puede ser negativo")
+    (t (evaluar-tiempo-en-ciclo (rem tiempo-unix (sumar-ciclos)) 'rojo))))
 
 ;REQUERIMIENTO 3: Función de Auditoría
 ;; ====================================================================
