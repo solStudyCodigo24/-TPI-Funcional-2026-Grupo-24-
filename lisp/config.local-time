@@ -110,7 +110,7 @@
 
 ;REQUERIMIENTO 6
 ;;====================================================================
-;; FUNCIÓN: calcularPorcentajesHora
+;; FUNCIÓN: calcular-porcentaje-hora
 ;; NATURALEZA: Pura
 ;; ESTRATEGIA: Retorna una lista con el color del semaforo correspondiente y el cálculo de su porcentaje.
 ;; Realiza una composición funcional reutilizando calcular-ciclos para un código limpio.
