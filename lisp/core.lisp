@@ -54,3 +54,118 @@
       (format t "Tiempo ~d: la luz ha cambiado de ~a a ~a"
               tiempo-Unix color-anterior color-nuevo)
       nil))
+;; ==============================================================
+;; FUNCIÓN: de transición de estados
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: pregunta ¿Cuál es el próximo estado del semáforo?, entonces recibe un estado y devuelve el siguiente.
+;; IMPACTO: No destructiva
+;; ============================================================
+
+(defun siguiente-estado (estado)
+  (cond
+    ((equal estado 'rojo) 'rojo-intermitente)
+    ((equal estado 'rojo-intermitente) 'verde)
+
+    ((equal estado 'verde) 'verde-intermitente)
+    ((equal estado 'verde-intermitente) 'amarillo)
+
+    ((equal estado 'amarillo) 'amarillo-intermitente)
+    ((equal estado 'amarillo-intermitente) 'rojo)
+
+    (t 'estado-invalido)))
+ ;; ==============================================================
+;; FUNCIÓN:manejo de los tiempos
+;; NATURALEZA: Pura.
+;; ESTRATEGIA: su trabajo es decir¿Cuántos segundos dura este estado?,Recibe un estado y devuelve un número.
+;; IMPACTO: No destructiva
+;; ============================================================
+(defun tiempo-estado (estado)
+  (cond
+    ((equal estado 'rojo) 30)
+    ((equal estado 'verde) 25)
+    ((equal estado 'amarillo) 5)
+
+    ((equal estado 'rojo-intermitente) 3)
+    ((equal estado 'verde-intermitente) 3)
+    ((equal estado 'amarillo-intermitente) 3)
+
+    (t 0)))
+  
+;; ==============================================================
+;; FUNCIÓN:mostrar colores
+;; NATURALEZA: Pura.
+;; ESTRATEGIA:  mostrar información al usuario.Recibe un estado y devuelve un mensaje o texto para mostrar.
+;; IMPACTO: No destructiva
+;; ============================================================
+
+
+ (defun mostrar-estado (estado)
+  (cond
+    ((equal estado 'rojo) "ROJO")
+    ((equal estado 'rojo-intermitente) "ROJO-INTERMITENTE")
+
+    ((equal estado 'verde) "VERDE")
+    ((equal estado 'verde-intermitente) "VERDE-INTERMITENTE")
+
+    ((equal estado 'amarillo) "AMARILLO")
+    ((equal estado 'amarillo-intermitente) "AMARILLO-INTERMITENTE")
+
+    (t "ESTADO INVALIDO")))
+;;====================================================================
+;; FUNCIÓN: informe
+;; NATURALEZA: Impura( Escribe un archivo en el  disco)
+;; ESTRATEGIA: Orden Superior (hace un mapeo mediante mapcar)
+;; IMPACTO: No destructiva 
+;; ====================================================================
+(defun informe (datos)
+  (with-open-file (stream "informe-ejecucion-semaforo.txt" 
+                          :direction :output 
+                          :if-exists :supersede)
+    (format stream "Informe de Ejecución del Sistema Semafórico~%")
+    (format stream "=========================================%%")
+    (mapcar #'(lambda (registro)
+                (format stream "A - Transición: ~A -> ~A%"
+                        (first registro)
+                        (second registro)
+                        (third registro)))
+            datos)
+    (format stream "~%--- Fin del Informe ---")))
+
+;;====================================================================
+;; FUNCIÓN: tiempo-estado
+;; NATURALEZA: Impura (Lee información desde un archivo externo JSON)
+;; ESTRATEGIA: Lectura de configuración mediante archivo JSON y selección
+;;             condicional del tiempo según el estado recibido.
+;; IMPACTO: No destructivo (Solo consulta datos, no modifica archivos)
+;;
+
+(defun tiempo-estado (estado)
+  (with-open-file (stream "config.json" :direction :input)
+    (let* ((config (json:decode-json stream))
+           (rojo (cdr (assoc "rojo" config :test #'string=)))
+           (verde (cdr (assoc "verde" config :test #'string=)))
+           (amarillo (cdr (assoc "amarillo" config :test #'string=)))
+           (intermitente (cdr (assoc "intermitente" config :test #'string=))))
+      (cond
+        ((equal estado 'rojo) rojo)
+        ((equal estado 'verde) verde)
+        ((equal estado 'amarillo) amarillo)
+
+        ((or (equal estado 'rojo-intermitente)
+             (equal estado 'verde-intermitente)
+             (equal estado 'amarillo-intermitente))
+         intermitente)
+
+        (t 0)))))
+
+
+archivo config.json:
+
+{
+  "rojo": 90,
+  "verde": 120,
+  "amarillo": 6,
+  "intermitente": 3
+}
+
+
