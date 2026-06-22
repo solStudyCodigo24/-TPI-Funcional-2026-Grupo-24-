@@ -104,7 +104,7 @@
 ;; Devuelve un mensaje correspondiente a las distintas opciones recomendadas por ingenieros civiles.
 ;; IMPACTO: No destructiva
 ;;====================================================================
-(defun Evaluar-ciclo (nro-segundos)
+(defun evaluar-ciclo (nro-segundos)
   (cond
     ((< nro-segundos 35)
      "Ciclo por debajo del mínimo recomendado por 
