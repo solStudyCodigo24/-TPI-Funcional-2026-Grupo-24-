@@ -1,0 +1,114 @@
+
+;;================================================================
+;;REQUERIMIENTO 7 : PRUEBA
+;;===============================================================
+ ;; (transicion-semf 'en-rojo 'verde)
+;; ;; (EN-ROJO CAMBIAR-A-VERDE)
+;; (transicion-semf 'en-verde 'amarillo)
+;; ;; (EN-VERDE CAMBIAR-A-AMARILLO)
+;; (transicion-semf 'en-amarillo 'rojo)
+;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
+;; (transicion-semf 'en-amarillo 'rojo)
+;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
+;; (transicion-semf 'en-amarillo 'cambiar-a-rojo)
+;; ;; (EN-AMARILLO ACCION-POR-DEFECTO)
+;; (transicion-semf 'en-amari 'cambiar-a-rojo)
+;; ;; (EN-AMARI ACCION-POR-DEFECTO)
+;; (transicion-semf 1 'cambiar-a-rojo)
+;; ;; (1 ACCION-POR-DEFECTO)
+;; (sumar-ciclos)
+;; ;; 216
+;; (timer -2)
+;; ;; "El tiempo Unix no puede ser negativo"
+;; (timer 23)
+;; ;; EN-ROJO
+;; (timer 93)
+;; ;; EN-AMARILLO
+;; (timer 120)
+;; ;; EN-VERDE
+;; (timer 12046337647464)
+;; ;; EN-ROJO
+;; (timer 120463376474649898)
+;; (auditoria 3334 'en-verde 'amarrillo)
+;; ;; Tiempo 3334: la luz ha cambiado de EN-VERDE a AMARRILLO
+;; ;; NIL
+;; (auditoria -3334 'en-verde 'amarrillo)
+;; ;; NIL
+;; (calcular-duracion-total 90 6 124)
+;; ;; 220
+;; (recomendacion-ciclo-ing 90 6 120)
+;; ;; "Ciclo por encima del máximo recomendado por Ingenieros Civiles.Existe riesgo de incrementar incumplimiento en las normas de transito"
+;; (recomendacion-ciclo-ing 40 6 90)
+;; ;; "Ciclo dentro de los parametros recomendados en por la Ingenieros Civiles "
+;; (recomendacion-ciclo-ing 15 3 15)
+;; ;; "Ciclo por debajo del mínimo recomendado por Ingenieros Civiles.Existe riesgo de colision."
+;; (ciclos-por-tiempo 23)
+;; ;; 6
+;; ;; 0.38888884
+;; (ciclos-por-tiempo 1)
+;; ;; 0
+;; ;; 0.2777778
+;; (ciclos-por-tiempo 4)
+;; ;; 1
+;; ;; 0.111111164
+;; (ciclos-por-tiempo 3)
+;; ;; 0
+;; ;; 0.8333333
+;; (ciclos-por-tiempo 50)
+;; ;; 13
+;; ;; 0.8888893
+;; (calculaPorcentajesHora 90 6 216)
+;; ;; (ROJO 28.846153 AMARILLO 1.9230769 VERDE 69.23077)
+;; (calculaPorcentajesHora 120 23 90)
+;; ;; (ROJO 51.502148 AMARILLO 9.871244 VERDE 38.62661)
+(defun ingresar-Datos-Semaforo ()
+                (let (color-act cambiar-color tiempo-Unix semf-r semf-a semf-v cant-min estado)
+                 (princ "Ingrese el color actual del semaforo (En este formato en-verde o en-rojo o en-amarrillo) : ")
+                 (setq color-act (read))
+                 (princ "Ingrese el color a cual va a cambiar el semaforo ‘verde ‘rojo ‘amarrillo : ")
+                 (setq cambiar-color (read))
+                 (princ "Ingrese la cant de segundos para evaluar donde se encuentra el ciclo : ")
+                 (setq tiempo-Unix (read)) 
+                 (princ "Ingrese la cant de segundos del semaforo en rojo  : ")
+                 (setq semf-r (read))
+                  (princ "Ingrese la cant de segundos del semaforo en Amarillo  : ")
+                 (setq semf-a (read))
+                (princ "Ingrese la cant de segundos del semaforo en verde : ")
+                 (setq semf-v (read))
+                (princ "Ingrese la cant de minutos para calcular la cantidad de ciclos que entran en esos min  : ")
+                 (setq cant-min (read)) 
+                (princ "Ingrese el estado del semaforo para saber su sig. estado, mostrarlo y saber su tiempo : ")
+                 (setq estado (read))
+                (or (and (symbolp color-act )(symbolp cambiar-color)(numberp tiempo-Unix)(numberp semf-r)(numberp semf-a)(numberp semf-v)(numberp cant-min)
+                         (list (list (transicion-semf color-act cambiar-color))
+                               (list "El tiempo unix es : " (timer tiempo-Unix))
+                               (list "La auditoria : " (progn (auditoria tiempo-Unix color-act cambiar-color)))
+                               (list "La duracion total del semaforo en rojo es : " (calcular-duracion-total semf-r semf-a semf-v))
+                               (list "La recomendacion de la duracion del ciclo segun los Ingenieros es : " (recomendacion-ciclo-ing semf-r semf-a semf-v))
+                               (list "La cantidad de ciclo por los min integrado  es :" (ciclos-por-tiempo cant-min))
+                               (list "calcula porcentaje de los ciclos en una hora :" (calculaPorcentajesHora semf-r semf-a semf-v)) 
+                               (list "FUNCIONES ITERATIVAS ->""El siguiente estado es : " (siguiente-estado estado ) "El estado que se muestra es : " (mostrar-Estado estado)
+                                "El tiempo del estado es" (tiempo-estado estado))))
+                                "ERROR ALGUNO DE LOS DATOS QUE INGRESO ES ERRONEO")))
+
+(ingresar-Datos-Semaforo)
+Ingrese el color actual del semaforo (En este formato en-verde o en-rojo o en-amarrillo) : EN-VERDE
+Ingrese el color a cual va a cambiar el semaforo ‘verde ‘rojo ‘amarrillo : amarillo
+Ingrese la cant de segundos para evaluar donde se encuentra el ciclo : 3447847844
+Ingrese la cant de segundos del semaforo en rojo  : 67
+Ingrese la cant de segundos del semaforo en Amarillo  : 6
+Ingrese la cant de segundos del semaforo en verde : 89
+Ingrese la cant de minutos para calcular la cantidad de ciclos que entran en esos min  : 15
+Ingrese el estado del semaforo para saber su sig. estado, mostrarlo y saber su tiempo : rojo
+
+—-------MENSAJE ESPERADO—----------------
+Tiempo 3447847844: la luz ha cambiado de EN-VERDE a AMARILLO
+(((EN-VERDE CAMBIAR-A-AMARILLO)) ("El tiempo unix es : " EN-VERDE) ("La auditoria : " NIL)
+ ("La duracion total del semaforo en rojo es : " 162)
+ ("La recomendacion de la duracion del ciclo segun los Ingenieros es : "
+  "Ciclo por encima del máximo recomendado por Ingenieros Civiles.Existe riesgo de incrementar incumplimiento en las normas de transito")
+ ("La cantidad de ciclo por los min integrado  es :" 4)
+ ("calcula porcentaje de los ciclos en una hora :" (ROJO 41.358025 AMARILLO 3.7037036 VERDE 54.93827))
+ ("FUNCIONES ITERATIVAS ->" "El siguiente estado es : " ROJO-INTERMITENTE "El estado que se muestra es : " "ROJO"
+  "El tiempo del estado es" 90))
+Break 5 [6]> 
