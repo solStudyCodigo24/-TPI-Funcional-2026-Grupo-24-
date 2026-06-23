@@ -1,6 +1,6 @@
 ;; REQUERIMIENTO 1: Función de Transición de Colores.
 ;; ====================================================================
-;; FUNCIÓN: transicion-semf
+;; FUNCIÓN: transicion
 ;; NATURALEZA: Pura (dado un timestap, siempre retorna el mismo color)
 ;; ESTRATEGIA: Selectiva (uso de cond para elegir una transición)
 ;; IMPACTO: No destructiva (solo calcula y devuelve resultados)
@@ -89,7 +89,7 @@
       nil))
 ;;====================================================================
 ;; REQUERIMIENTO 4: Funciones de Duración y Evaluación del Ciclo
-;; FUNCIÓN: calcular-duracion-total 
+;; FUNCIÓN: duracion-ciclo
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Devuelve la suma de la cant. de segundos que tarda el semaforo en rojo, 
 ;; el semáforo en amarillo y el semáforo en verde.
@@ -117,7 +117,7 @@
 	 Ingenieros Civiles.Existe riesgo de incrementar
 	 incumplimiento en las normas de transito")))
 ;;====================================================================
-;; FUNCIÓN: Recomendacion-ciclo-ing
+;; FUNCIÓN: Recomendacion-ciclo
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Devuelve el mensaje segun la suma de calcular los ciclos, por lo tanto, 
 ;; es una composición de la función Evaluar-ciclo y calcular-duracion-total.
@@ -196,12 +196,12 @@
  
  (defun mostrar-estado (estado) 
   (cond 
-	((equal estado 'rojo) "ROJO") 
-	((equal estado 'rojo-intermitente) "ROJO-INTERMITENTE") 
-	((equal estado 'verde) "VERDE") 
-	((equal estado 'verde-intermitente) "VERDE-INTERMITENTE") 
-	((equal estado 'amarillo) "AMARILLO") 
-	((equal estado 'amarillo-intermitente) "AMARILLO-INTERMITENTE") 
+	((eql estado 'rojo) "ROJO") 
+	((eql estado 'rojo-intermitente) "ROJO-INTERMITENTE") 
+	((eql estado 'verde) "VERDE") 
+	((eql estado 'verde-intermitente) "VERDE-INTERMITENTE") 
+	((eql estado 'amarillo) "AMARILLO") 
+	((eql estado 'amarillo-intermitente) "AMARILLO-INTERMITENTE") 
 	(t "ESTADO INVALIDO"))) 
 
 ;; ====================================================================
