@@ -167,7 +167,7 @@
 	((eql estado 'verde) 'verde-intermitente) 
 	((eql estado 'verde-intermitente) 'amarillo) 
 	((eql estado 'amarillo) 'amarillo-intermitente) 
-	((equl estado 'amarillo-intermitente) 'rojo) 
+	((eql estado 'amarillo-intermitente) 'rojo) 
 	(t 'estado-invalido))) 
 
 ;; ==============================================================
