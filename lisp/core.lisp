@@ -188,7 +188,7 @@
     ((eql estado 'amarillo-intermitente) 3)
     (t 0)))
 ;; ============================================================== 
-;; FUNCIÓN:mostrar colores 
+;; FUNCIÓN:mostrar-estado
 ;; NATURALEZA: Pura. 
 ;; ESTRATEGIA:  mostrar información al usuario.Recibe un estado y devuelve un mensaje o texto para mostrar. 
 ;; IMPACTO: No destructiva 
