@@ -123,8 +123,8 @@
 ;; es una composición de la función Evaluar-ciclo y calcular-duracion-total.
 ;; IMPACTO: No destructiva.
 ;;====================================================================
-(defun recomendacion-ciclo (semf-R semf-A semf-V)
-  (Evaluar-ciclo (calcular-duracion-total semf-R semf-A semf-V)))
+(defun recomendacion-ciclo (semf-R semf-V semf-A)
+  (Evaluar-ciclo (duracion-ciclo semf-R semf-V semf-A)))
 ;;====================================================================
 ;; REQUERIMIENTO 5: Planificación Temporal
 ;; FUNCIÓN: Ciclos-por-tiempo
