@@ -95,8 +95,8 @@
 ;; el semáforo en amarillo y el semáforo en verde.
 ;; IMPACTO: No destructiva. Función auxiliar para la función recomendación-ciclo-Ing. y calcular porcentaje hora.
 ;;====================================================================
-(defun calcular-duracion-total (semf-R semf-A semf-V)
-  (+ semf-R semf-A semf-V))
+(defun duracion-ciclo (semf-R semf-V semf-A)
+  (+ semf-R semf-v semf-A))
 ;;====================================================================
 ;; FUNCIÓN: Evaluar-Ciclo (Req. 4.b)
 ;; NATURALEZA: Pura.
@@ -123,7 +123,7 @@
 ;; es una composición de la función Evaluar-ciclo y calcular-duracion-total.
 ;; IMPACTO: No destructiva.
 ;;====================================================================
-(defun recomendacion-ciclo-ing (semf-R semf-A semf-V)
+(defun recomendacion-ciclo (semf-R semf-A semf-V)
   (Evaluar-ciclo (calcular-duracion-total semf-R semf-A semf-V)))
 ;;====================================================================
 ;; REQUERIMIENTO 5: Planificación Temporal
@@ -147,8 +147,8 @@
 (defun calcular-Porcentaje-Hora (semf-R semf-A semf-V)
   (list
     'ROJO     (float (* (/ (* semf-R (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))
-    'AMARILLO (float (* (/ (* semf-A (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))
-    'VERDE    (float (* (/ (* semf-V (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))))
+    'VERDE    (float (* (/ (* semf-V (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))
+    'AMARILLO    (float (* (/ (* semf-A (truncate (/ 3600 (calcular-duracion-total semf-R semf-A semf-V)))) 3600) 100))))
 
 
 
