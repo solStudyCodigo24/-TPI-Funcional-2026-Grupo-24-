@@ -2,19 +2,19 @@
 ;;================================================================
 ;;REQUERIMIENTO 7 : PRUEBA
 ;;===============================================================
-(transicion-semf 'en-rojo 'verde)
+(transicion 'en-rojo 'verde)
 ;; ;; (EN-ROJO CAMBIAR-A-VERDE)
-(transicion-semf 'en-verde 'amarillo)
+(transicion 'en-verde 'amarillo)
 ;; ;; (EN-VERDE CAMBIAR-A-AMARILLO)
-(transicion-semf 'en-amarillo 'rojo)
+(transicion 'en-amarillo 'rojo)
 ;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
-(transicion-semf 'en-amarillo 'rojo)
+(transicion'en-amarillo 'rojo)
 ;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
-(transicion-semf 'en-amarillo 'cambiar-a-rojo)
+(transicion 'en-amarillo 'cambiar-a-rojo)
 ;; ;; (EN-AMARILLO ACCION-POR-DEFECTO)
-(transicion-semf 'en-amari 'cambiar-a-rojo)
+(transicion'en-amari 'cambiar-a-rojo)
 ;; ;; (EN-AMARI ACCION-POR-DEFECTO)
-(transicion-semf 1 'cambiar-a-rojo)
+(transicion 1 'cambiar-a-rojo)
 ;; ;; (1 ACCION-POR-DEFECTO)
 (sumar-ciclos)
 ;; ;; 225
@@ -26,8 +26,8 @@
 ;; ;; EN-AMARILLO-INTERMITENTE
 (timer 124)
 ;; ;; EN-VERDE
-(timer 12046337647464)
-;; ;; EN-ROJO
+(timer 224)
+;; ;; EN-Amarrilo
 (timer 120463376474649898)
 (auditoria 3334 'en-verde 'amarrillo)
 ;; ;; Tiempo 3334: la luz ha cambiado de EN-VERDE a AMARRILLO
@@ -57,9 +57,111 @@
 (ciclos-por-tiempo 50)
 ;; ;; 13
 ;; ;; 0.33333302
-(calculaPorcentajesHora 90 6 216)
+(calcula-Porcentajes-Hora 90 6 216)
 ;; ;; (ROJO 27.5 AMARILLO 1.8333334 VERDE 66.0)
-(calculaPorcentajesHora 120 23 90)
+(calcula-Porcentajes-Hora 120 23 90)
+;;(ROJO 50.0 AMARILLO 9.583333 VERDE 37.5)
+
+(EN-ROJO CAMBIAR-A-VERDE)
+Break 1 [2]> 
+(EN-VERDE CAMBIAR-A-AMARILLO)
+Break 1 [2]> 
+(EN-AMARILLO CAMBIAR-A-ROJO)
+Break 1 [2]> 
+(EN-AMARILLO CAMBIAR-A-ROJO)
+Break 1 [2]> 
+(EN-AMARILLO ACCION-POR-DEFECTO)
+Break 1 [2]> 
+(EN-AMARI ACCION-POR-DEFECTO)
+Break 1 [2]> 
+(1 ACCION-POR-DEFECTO)
+Break 1 [2]> 
+225
+Break 1 [2]> 
+"El tiempo Unix no puede ser negativo"
+Break 1 [2]> 
+ROJO
+Break 1 [2]> 
+AMARILLO-INTERMITENTE
+Break 1 [2]> 
+VERDE
+Break 1 [2]> 
+AMARILLO-INTERMITENTE
+Break 1 [2]> 
+ROJO
+Break 1 [2]> Tiempo 3334: la luz ha cambiado de EN-VERDE a AMARRILLO
+NIL
+Break 1 [2]> 
+NIL
+Break 1 [2]> 
+*** - EVAL: la funci■ CALCULAR-DURACION-TOTAL no est■definida
+Es posible continuar en los siguientes puntos:
+USE-VALUE      :R1      Input a value to be used instead of (FDEFINITION 'CALCULAR-DURACION-TOTAL).
+RETRY          :R2      Reintentar
+STORE-VALUE    :R3      Input a new value for (FDEFINITION 'CALCULAR-DURACION-TOTAL).
+ABORT          :R4      Abort debug loop
+ABORT          :R5      Abort main loop
+Break 2 [3]>  ;;================================================================
+;;REQUERIMIENTO 7 : PRUEBA
+;;===============================================================
+(transicion 'en-rojo 'verde)
+;; ;; (EN-ROJO CAMBIAR-A-VERDE)
+(transicion 'en-verde 'amarillo)
+;; ;; (EN-VERDE CAMBIAR-A-AMARILLO)
+(transicion 'en-amarillo 'rojo)
+;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
+(transicion'en-amarillo 'rojo)
+;; ;; (EN-AMARILLO CAMBIAR-A-ROJO)
+(transicion 'en-amarillo 'cambiar-a-rojo)
+;; ;; (EN-AMARILLO ACCION-POR-DEFECTO)
+(transicion'en-amari 'cambiar-a-rojo)
+;; ;; (EN-AMARI ACCION-POR-DEFECTO)
+(transicion 1 'cambiar-a-rojo)
+;; ;; (1 ACCION-POR-DEFECTO)
+(sumar-ciclos)
+;; ;; 225
+(timer -2)
+;; ;; "El tiempo Unix no puede ser negativo"
+(timer 23)
+;; ;; ROJO
+(timer 222)
+;; ;; EN-AMARILLO-INTERMITENTE
+(timer 124)
+;; ;; EN-VERDE
+(timer 224)
+;; ;; EN-Amarrilo
+(timer 120463376474649898)
+(auditoria 3334 'en-verde 'amarrillo)
+;; ;; Tiempo 3334: la luz ha cambiado de EN-VERDE a AMARRILLO
+;; ;; NIL
+(auditoria -3334 'en-verde 'amarrillo)
+;; ;; NIL
+(calcular-duracion-total 90 6 124)
+;; ;; 220
+(recomendacion-ciclo-ing 90 6 120)
+;; ;; "Ciclo por encima del máximo recomendado por Ingenieros Civiles.Existe riesgo de incrementar incumplimiento en las normas de transito"
+(recomendacion-ciclo-ing 40 6 90)
+;; ;; "Ciclo dentro de los parametros recomendados en por la Ingenieros Civiles "
+(recomendacion-ciclo-ing 15 3 15)
+;; ;; "Ciclo por debajo del mínimo recomendado por Ingenieros Civiles.Existe riesgo de colision."
+(ciclos-por-tiempo 23)
+;;6 ;
+;;0.1333332
+(ciclos-por-tiempo 1)
+;;0 ;
+;;0.26666668
+(ciclos-por-tiempo 4)
+;; ;; 1
+;; ;; 0.06666672
+(ciclos-por-tiempo 3)
+;; ;; 0
+;; ;; 0.8
+(ciclos-por-tiempo 50)
+;; ;; 13
+;; ;; 0.33333302
+(calcular-Porcentajes-Hora 90 6 216)
+;; ;; (ROJO 27.5 AMARILLO 1.8333334 VERDE 66.0)
+(calcular-Porcentajes-Hora 120 23 90)
 ;;(ROJO 50.0 AMARILLO 9.583333 VERDE 37.5)
 
 ;;==============================================================================
