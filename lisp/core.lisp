@@ -5,7 +5,7 @@
 ;; ESTRATEGIA: Selectiva (uso de cond para elegir una transición)
 ;; IMPACTO: No destructiva (solo calcula y devuelve resultados)
 ;; ===================================================================
-(defun transicion-semf (color-actual cambiar-a)
+(defun transicion (color-actual cambiar-a)
 	(cond 
 		((and (eql color-actual 'en-rojo)(eq cambiar-a 'verde)) 
 							    (list color-actual 'cambiar-a-verde))
