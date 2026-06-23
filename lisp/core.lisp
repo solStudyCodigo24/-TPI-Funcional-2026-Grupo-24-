@@ -144,7 +144,7 @@
 ;; Realiza una composición funcional reutilizando calcular-ciclos para un código limpio.
 ;; IMPACTO: No destructiva
 ;; ====================================================================
-(defun calcular-Porcentaje-Hora (semf-R semf-V semf-A)
+(defun calcular-porcentaje-hora (semf-R semf-V semf-A)
   (list
     'ROJO     (float (* (/ (* semf-R (truncate (/ 3600 (duracion-ciclo semf-R semf-V semf-A)))) 3600) 100))
     'VERDE    (float (* (/ (* semf-V (truncate (/ 3600 (duracion-ciclo semf-R semf-V semf-A)))) 3600) 100))
