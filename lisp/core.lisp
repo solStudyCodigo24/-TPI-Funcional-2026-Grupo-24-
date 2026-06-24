@@ -1,4 +1,4 @@
-;; REQUERIMIENTO 1: Función de Transición de Colores.
+;;;; REQUERIMIENTO 1: Función de Transición de Colores.
 ;; ====================================================================
 ;; FUNCIÓN: transicion
 ;; NATURALEZA: Pura (dado un timestap, siempre retorna el mismo color)
@@ -17,7 +17,7 @@
 	)
 )
 
-;REQUERIMIENTO 2: Temporizador Automático
+;;;;REQUERIMIENTO 2: Temporizador Automático
 ;;====================================================================
 ;; FUNCIÓN: Sumar-ciclos
 ;; NATURALEZA: Pura.
@@ -29,7 +29,7 @@
 (defun sumar-ciclos ()
   (+ 90 3 120 3 6 3))
 
-;;====================================================================
+;;;;====================================================================
 ;; FUNCIÓN: timer sin ingresar tiempo estado 
 ;; NATURALEZA: Pura (dado un timestamp, siempre retorna el mismo color)
 ;; ESTRATEGIA: Selectiva (uso de cond y operador matemático rem para obtener el resto)
@@ -42,7 +42,7 @@
     ;;((< (rem tiempo-unix (sumar-ciclos)) 210)  'en-verde)
     ;;(t  'en-amarillo)))
 
-; ====================================================================
+;;;;====================================================================
 ; FUNCIÓN: evaluar-tiempo-en-ciclo
 ; NATURALEZA: pura(recibe como parametro el resto de tiempo-unix y estado-actual)
 ; ESTRATEGIA: compara el tiempo de tiempo-estado, primero con los 90 seg. despues de ello lo resta, y ese resto va 
@@ -58,7 +58,7 @@
      (evaluar-tiempo-en-ciclo 
        (- resto-tiempo (tiempo-estado estado-actual)) 
        (siguiente-estado estado-actual)))))
-; ====================================================================
+;;;; ====================================================================
 ; FUNCIÓN: timer
 ; NATURALEZA: Pura. Utiliza un cond para evaluar diferentes posiciones 
 ; e imprimir que color corresponde.
@@ -75,7 +75,7 @@
     ((< tiempo-unix 0) "El tiempo Unix no puede ser negativo")
     (t (evaluar-tiempo-en-ciclo (rem tiempo-unix (sumar-ciclos)) 'rojo))))
 
-;REQUERIMIENTO 3: Función de Auditoría
+;;;;REQUERIMIENTO 3: Función de Auditoría
 ;; ====================================================================
 ;; FUNCION: auditoria
 ;; NATURALEZA: Impura (imprime en pantalla mediante format)
@@ -87,7 +87,7 @@
       (format t "Tiempo ~d: la luz ha cambiado de ~a a ~a"
               tiempo-Unix color-anterior color-nuevo)
       nil))
-;;====================================================================
+;;;;====================================================================
 ;; REQUERIMIENTO 4: Funciones de Duración y Evaluación del Ciclo
 ;; FUNCIÓN: duracion-ciclo
 ;; NATURALEZA: Pura.
@@ -97,7 +97,7 @@
 ;;====================================================================
 (defun duracion-ciclo (semf-R semf-V semf-A)
   (+ semf-R semf-v semf-A))
-;;====================================================================
+;;;;====================================================================
 ;; FUNCIÓN: Evaluar-Ciclo (Req. 4.b)
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Ingresa como parámetro la cantidad de seg que dura la suma de un ciclo.
@@ -116,7 +116,7 @@
      "Ciclo por encima del máximo recomendado por
 	 Ingenieros Civiles.Existe riesgo de incrementar
 	 incumplimiento en las normas de transito")))
-;;====================================================================
+;;;;====================================================================
 ;; FUNCIÓN: Recomendacion-ciclo
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Devuelve el mensaje segun la suma de calcular los ciclos, por lo tanto, 
@@ -125,7 +125,7 @@
 ;;====================================================================
 (defun recomendacion-ciclo (semf-R semf-V semf-A)
   (Evaluar-ciclo (duracion-ciclo semf-R semf-V semf-A)))
-;;====================================================================
+;;;;====================================================================
 ;; REQUERIMIENTO 5: Planificación Temporal
 ;; FUNCIÓN: Ciclos-por-tiempo
 ;; NATURALEZA: Pura.
@@ -136,7 +136,7 @@
 (defun ciclos-por-tiempo (cant-min)
   (truncate (float (/ (* cant-min 60) (sumar-ciclos)))))
 
-;; REQUERIMIENTO 6: Calcular Porcentaje.
+;;;;REQUERIMIENTO 6: Calcular Porcentaje.
 ;;====================================================================
 ;; FUNCIÓN: calcularPorcentajesHora
 ;; NATURALEZA: Pura
@@ -153,7 +153,7 @@
 
 
 
-;; ============================================================== 
+;;;; ============================================================== 
 ;; FUNCIÓN: de transición de estados 
 ;; NATURALEZA: Pura. 
 ;; ESTRATEGIA: pregunta ¿Cuál es el próximo estado del semáforo?, entonces recibe un estado y devuelve el siguiente. 
@@ -170,7 +170,7 @@
 	((eql estado 'amarillo-intermitente) 'rojo) 
 	(t 'estado-invalido))) 
 
-;; ==============================================================
+;;;; ==============================================================
 ;; FUNCIÓN: tiempo-estado
 ;; NATURALEZA: Pura.
 ;; ESTRATEGIA: Recibe un estado del semáforo y devuelve
@@ -187,7 +187,7 @@
     ((eql estado 'amarillo) 6)
     ((eql estado 'amarillo-intermitente) 3)
     (t 0)))
-;; ============================================================== 
+;;;; ============================================================== 
 ;; FUNCIÓN:mostrar-estado
 ;; NATURALEZA: Pura. 
 ;; ESTRATEGIA:  mostrar información al usuario.Recibe un estado y devuelve un mensaje o texto para mostrar. 
@@ -204,7 +204,7 @@
 	((eql estado 'amarillo-intermitente) "AMARILLO-INTERMITENTE") 
 	(t "ESTADO INVALIDO"))) 
 
-;; ====================================================================
+;;;; ====================================================================
 ;; FUNCIÓN: informe
 ;; NATURALEZA: Impura. Escribe un archivo de texto directamente en el disco.
 ;; ESTRATEGIA: Usa mapcar junto a una función lambda que recibe el registro, 
