@@ -33,7 +33,7 @@ El proyecto se divide en cuatro fases principales:
    Reimplementación de funciones desarrolladas en Lisp utilizando **Erlang**, acompañada de un análisis teórico sobre diferencias sintácticas, semánticas y aplicaciones industriales.Aqui si fue necesario usar IA porque nos daban pautas de como enteneder mejor el manual de erlang en ingles y sobre todo, cuales fueron nuestros errores, cuyo pusimos en el codigo de hornor el uso de la misma, todo esto se haya en el informe.
 
 4. **Análisis del código**
-  Reflexion en un video de youtube sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.
+  Reflexion en un video de youtube sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.Video de Youtube --> https://youtu.be/R5vXOyQTLMo
 
 </td>
 # TPI Funcional 2026 - Grupo 24
