@@ -1,6 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/solStudyCodigo24/TPI-Funcional-2026-Grupo-24/main/docs/imagen-anime.png" width="100%">
+  <img src="https://github.com/user-attachments/assets/3a57fdb9-10f3-42b1-8013-d851b963a0f7" alt="Grupo 24 Anime" width="100%">
 </p>
+
+
 
 # 🚦 TPI-Funcional-2026-Grupo-24
 *Integrantes* 
@@ -82,5 +84,6 @@ Este repositorio contiene el Trabajo Práctico Integrador de la materia Paradigm
 </tr>
 </table>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/solStudyCodigo24/TPI-Funcional-2026-Grupo-24/main/docs/imagen-fotos.png" width="100%">
+  <img src="https://github.com/user-attachments/assets/79632d6d-1d77-404c-aa47-dec6546de5f1" alt="Grupo 24 Real" width="100%">
 </p>
+
