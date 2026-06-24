@@ -1,4 +1,7 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ddc0b049-104c-45f8-8419-d471f8241fc2" />
+<p align="center">
+  <img src="docs/grupo24-anime.png" alt="Grupo 24" width="100%">
+</p>
+
 
 # 🚦 TPI-Funcional-2026-Grupo-24
 *Integrantes* 
@@ -13,7 +16,7 @@
 
 El repositorio corresponde a un Trabajo Práctico Integrador de la cátedra **Paradigmas y Lenguajes de Programación**.
 
-El proyecto desarrolla un **Sistema de Semáforos Inteligentes**, aplicando los principios del paradigma funcional en **Common Lisp** y realizando una comparación con otro lenguaje funcional asignado: **Elixir**.
+El proyecto desarrolla un **Sistema de Semáforos Inteligentes**, aplicando los principios del paradigma funcional en **Common Lisp** y realizando una comparación con otro lenguaje funcional asignado: **Erlang**.
 
 ## Estructura del trabajo
 
@@ -23,42 +26,44 @@ El proyecto se divide en cuatro fases principales:
    Desarrollo de la resolución completa del problema utilizando Common Lisp.
 
 2. **Integración de librerías externas**
-   Incorporación de librerías seleccionadas por el grupo, como `local-time` o `cl-json`.
+   Incorporación de librerías seleccionadas por el grupo,`local-time`.
 
 3. **Estudio comparativo**
-   Reimplementación de funciones desarrolladas en Lisp utilizando **Elixir**, acompañada de un análisis teórico sobre diferencias sintácticas, semánticas y aplicaciones industriales.
+   Reimplementación de funciones desarrolladas en Lisp utilizando **Erlang**, acompañada de un análisis teórico sobre diferencias sintácticas, semánticas y aplicaciones industriales.Aqui si fue necesario usar IA porque nos daban pautas de como enteneder mejor el manual de erlang en ingles y sobre todo, cuales fueron nuestros errores, cuyo pusimos en el codigo de hornor el uso de la misma, todo esto se haya en el informe.
 
 4. **Análisis del código**
-   Reflexión y exposición en formato presencial y audiovisual sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.
+  Reflexion en un video de youtube sobre el proceso de desarrollo, dificultades encontradas y conocimientos adquiridos.
 
 </td>
 # TPI Funcional 2026 - Grupo 24
 
-## Estructura del Repositorio
 
-```text
-TPI-Funcional-2026-Grupo24/
+## Estructura del Proyecto
 
-├── main
-│   ├── README.md
-│   ├── instalar sbcl.txt
-│   └── lisp/
-│       ├── Cómo usar la función auditoria.txt
-│       ├── config.local-time
-│       └── instalar sbcl.txt
-
-├── LIPS
+```plaintext
+TPI-Funcional-2026-Grupo-24/
+│
+├── README.md
+│
+├── docs/
+│   ├── HONOR.md
+│   └── INFORME.pdf
+│
+├── lisp/
 │   ├── core.lisp
-│   ├── Requerimiento 7 e Ingreso por Operador.lips
-│   └── lisp/
-
-├── Comparativa
-│   └── solucion.erl
-
-└── Docs
-    ├── INFORME TPIntegrador-PyLdP GRUPO24.docx
-    └── HONOR.md
+│   ├── Requisito-e-Ingreso-por-operador.lips
+│   ├── Bitácora-de-bugs.lips
+│   ├── config.local-time
+│   ├── Instalacion SBCL
+│   └── Cómo usar la función auditoria en sbcl
+│
+└── comparativa/
+    └── solucion.erl
 ```
+
+## Descripción
+
+Este repositorio contiene el Trabajo Práctico Integrador de la materia Paradigmas y Lenguajes de Programación. El proyecto desarrolla un Sistema de Semáforos Inteligentes utilizando Common Lisp y una comparación funcional realizada en Erlang.
 
 ## Descripción
 
@@ -77,3 +82,6 @@ TPI-Funcional-2026-Grupo24/
 </td>
 </tr>
 </table>
+<p align="center">
+  <img src="docs/grupo24-fotos.png" alt="Integrantes Grupo 24" width="100%">
+</p>
