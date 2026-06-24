@@ -1,5 +1,3 @@
-comparativa/
-% agrego requerimiento 1 de lisp pasado a erlang, usando el metodo pattern matching.
 transicion_semf(en_rojo, verde) ->
                 [en_rojo, cambiar_a_verde];
             transicion_semf(en_verde, amarillo) ->
